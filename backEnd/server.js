@@ -73,6 +73,7 @@ var Offer = new mongoose.Schema({
     date: {type: Date, required: true},
     time: {type: Number, required: true},
     lable: {type: String, required: true},
+    prime: {type: String, required: true},
     description: {type: String, required: true},
     nbPosts: {type: Number, required: true},
     createdBy: {type: Schema.Types.ObjectId, ref: 'Owner'},

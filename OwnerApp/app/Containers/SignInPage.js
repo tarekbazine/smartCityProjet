@@ -24,7 +24,6 @@ export default class SignInPage extends React.Component {
 
                     <View style={{flex:2}}>
                         <TextInput
-
                             // Adding hint in Text Input using Place holder.
                             placeholder="Enter Text in TextInput"
 
@@ -53,6 +52,7 @@ export default class SignInPage extends React.Component {
                                 onPress={sign}
                             >
                                 <Text style={{
+                                    ...defaultStyle.text,
                                     height:'100%',
                                     fontSize: 20,
                                     textAlign:'center',
@@ -72,6 +72,7 @@ export default class SignInPage extends React.Component {
                                 onPress={sign}
                             >
                                 <Text style={{
+                                    ...defaultStyle.text,
                                     height:'100%',
                                     fontSize: 20,
                                     color:'#fff',
@@ -85,6 +86,7 @@ export default class SignInPage extends React.Component {
                             style={styles.txtStyle}
                         >
                             <Text style={{
+                                ...defaultStyle.text,
                                 color:'#fff',
                                 borderColor: '#fff',
                                 textAlign:'right',
@@ -158,3 +160,9 @@ const styles = StyleSheet.create({
 
     }
 });
+
+const defaultStyle = {
+    text:{
+        fontFamily:'Exo'
+    }
+}
