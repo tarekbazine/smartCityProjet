@@ -2,8 +2,11 @@ import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import SignInPage from './app/Containers/SignInPage'
 import { Font } from 'expo'
+import { createStackNavigator } from 'react-navigation';
+import HomePage from './app/Containers/HomePage';
 
-export default class App extends React.Component {
+
+class __App extends React.Component {
     constructor(props) {
         super(props);
         this.state = { loading: true };
@@ -35,3 +38,18 @@ const styles = StyleSheet.create({
         flex: 1
     },
 });
+
+
+const App = createStackNavigator({
+    Home: {
+        screen: __App
+    },
+    HomeScreen: {
+        screen: HomePage,
+    },
+    SignInScreen:SignInPage
+},{
+    headerMode: 'none',
+});
+
+export default App;

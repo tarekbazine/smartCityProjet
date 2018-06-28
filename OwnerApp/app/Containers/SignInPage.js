@@ -2,14 +2,21 @@ import React from 'react';
 import {
     StyleSheet, Text, TextInput,
     Button, View, Image,
-    TouchableOpacity
+    TouchableOpacity,
+    KeyboardAvoidingView
 } from 'react-native';
 
+
 export default class SignInPage extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
 
         const sign = () => {
             console.warn("press")
+            this.props.navigation.navigate('HomePage')
         }
 
         return (
@@ -22,62 +29,68 @@ export default class SignInPage extends React.Component {
                 </View>
                 <View style={styles.inputsContainer}>
 
-                    <View style={{flex:2}}>
+                    <View
+                        style={{
+                            width: '100%',
+                            paddingTop: 15,
+                            flex: 2
+                        }}>
                         <TextInput
-                            // Adding hint in Text Input using Place holder.
-                            placeholder="Enter Text in TextInput"
-
-                            // Making the Under line Transparent.
+                            placeholder="User name"
                             underlineColorAndroid='transparent'
-
-                            // Calling the custom TextInputStyleClass.
-                            style={styles.TextInputStyleClass}/>
-                        <TextInput/>
+                            style={styles.TextInputName}/>
+                        <TextInput
+                            placeholder="Password"
+                            secureTextEntry={true}
+                            underlineColorAndroid='transparent'
+                            style={styles.TextInputPass}/>
                     </View>
 
                     <View style={{
-                        flex:2,
-                        alignItems:'stretch'
+                        flex: 3,
+                        alignItems: 'stretch'
                     }}>
 
                         <View style={styles.btnsContainer}>
                             <TouchableOpacity
                                 style={{
-                                    width:"45%",
-                                    borderBottomLeftRadius:100,
-                                    borderTopLeftRadius:100,
+                                    width: "45%",
+                                    borderBottomLeftRadius: 100,
+                                    borderTopLeftRadius: 100,
                                     borderColor: '#fff',
-                                    borderWidth: 2
+                                    borderWidth: 2,
+                                    height:50
                                 }}
-                                onPress={sign}
+                                onPress={() => this.props.navigation.navigate('HomeScreen')}
                             >
                                 <Text style={{
                                     ...defaultStyle.text,
-                                    height:'100%',
+                                    height: '100%',
                                     fontSize: 20,
-                                    textAlign:'center',
-                                    color:'#fff',
-                                    textAlignVertical:'center',
+                                    textAlign: 'center',
+                                    color: '#fff',
+                                    textAlignVertical: 'center',
                                 }}>Sign Up</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                                 style={{
-                                    width:"45%",
-                                    borderBottomRightRadius:100,
-                                    borderTopRightRadius:100,
+                                    width: "45%",
+                                    borderBottomRightRadius: 100,
+                                    borderTopRightRadius: 100,
                                     backgroundColor: '#ffbc00',
                                     borderColor: '#ffbc00',
-                                    borderWidth: 2
+                                    borderWidth: 2,
+                                    height:50
                                 }}
                                 onPress={sign}
                             >
                                 <Text style={{
                                     ...defaultStyle.text,
-                                    height:'100%',
+                                    height: '100%',
                                     fontSize: 20,
-                                    color:'#fff',
-                                    textAlignVertical:'center',
-                                    textAlign:'center',
+                                    color: '#fff',
+                                    textAlignVertical: 'center',
+                                    textAlign: 'center',
                                 }}>Connexion</Text>
                             </TouchableOpacity>
                         </View>
@@ -87,18 +100,19 @@ export default class SignInPage extends React.Component {
                         >
                             <Text style={{
                                 ...defaultStyle.text,
-                                color:'#fff',
+                                color: '#fff',
                                 borderColor: '#fff',
-                                textAlign:'right',
-                                marginRight:30
+                                textAlign: 'right',
+                                paddingRight: 30
                             }}>Password forgotten?</Text>
                         </TouchableOpacity>
 
                     </View>
 
-                </View>
             </View>
-        );
+    </View>
+    )
+        ;
     }
 }
 
@@ -114,55 +128,47 @@ const styles = StyleSheet.create({
         width: 200
     },
     logo: {
-        paddingTop:10,
+        paddingTop: 10,
         flex: 1,
-
-        // height: 50,
-        // width: 100
     },
     inputsContainer: {
         flex: 1,
-        // height: '100%',
-        // width: 100,
-        // flexDirection: 'column',
-        // justifyContent: 'space-around'
     },
-    btnsContainer:{
-        padding:25,
-        flex:1,
-        width:300,
-        flexDirection:'row',
-        justifyContent:'space-between'
+    btnsContainer: {
+        marginLeft: 30,
+        padding: 25,
+        flex: 1,
+        width: 300,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
     },
-    txtStyle:{
-        flex:1,
-        alignContent:'flex-end'
+    txtStyle: {
+        flex: 2,
+        alignContent: 'flex-end'
     },
-    TextInputStyleClass:{
-
-// Setting up Hint Align center.
+    TextInputName: {
         textAlign: 'center',
-
-// Setting up TextInput height as 50 pixel.
         height: 50,
-
-// Set border width.
-        borderWidth: 2,
-
-        // Set border Hex Color Code Here.
-        borderColor: '#FF5722',
-
-// Set border Radius.
-        borderRadius: 20 ,
-
-//Set background color of Text Input.
-        backgroundColor : "#FFFFFF"
-
+        marginRight: 120,
+        width: 230,
+        borderTopRightRadius: 20,
+        borderBottomRightRadius: 20,
+        backgroundColor: "#FFFFFF",
+        marginBottom:15
+    },
+    TextInputPass: {
+        textAlign: 'center',
+        height: 50,
+        marginLeft: 130,
+        width: 230,
+        borderBottomLeftRadius: 20,
+        borderTopLeftRadius: 20,
+        backgroundColor: "#FFFFFF"
     }
 });
 
 const defaultStyle = {
-    text:{
-        fontFamily:'Exo'
+    text: {
+        fontFamily: 'Exo'
     }
 }
