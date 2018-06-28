@@ -1,30 +1,26 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import SignInPage from './app/Containers/SignInPage'
-import { Font } from 'expo'
-import AgendaPage from './app/Containers/AgendaPage'
-import Offers from './app/Containers/Offers'
-export default class App extends React.Component {
-import { createStackNavigator } from 'react-navigation';
-import HomePage from './app/Containers/HomePage';
+import {Font} from 'expo'
+import {createStackNavigator} from 'react-navigation';
 
 
 class __App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { loading: true };
+        this.state = {loading: true};
     }
 
     async componentWillMount() {
         await Font.loadAsync({
             Exo: require('./app/assets/font/Exo/Exo-Medium.ttf')
         });
-        this.setState({ loading: false });
+        this.setState({loading: false});
     }
 
     render() {
-        if (this.state.loading){
-            return(<Text>Loading</Text>)
+        if (this.state.loading) {
+            return (<Text>Loading</Text>)
         }
         return (
             <View style={styles.container}>
@@ -46,12 +42,8 @@ const styles = StyleSheet.create({
 const App = createStackNavigator({
     Home: {
         screen: __App
-    },
-    HomeScreen: {
-        screen: HomePage,
-    },
-    SignInScreen:SignInPage
-},{
+    }
+}, {
     headerMode: 'none',
 });
 

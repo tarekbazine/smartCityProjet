@@ -5,18 +5,24 @@ import {
     TouchableOpacity,
     KeyboardAvoidingView
 } from 'react-native';
+import {createStackNavigator} from "react-navigation";
+import AgendaPage from '../Containers/AgendaPage'
+import defaultStyle from '../assets/style/DefaultStyles'
 
 
-export default class SignInPage extends React.Component {
+class __SignInPage extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
 
-        const sign = () => {
-            console.warn("press")
-            this.props.navigation.navigate('HomePage')
+        const signIn = () => {
+            this.props.navigation.navigate('HomeScreen')
+        }
+        
+        const signUp = () => {
+           alert('connexion')
         }
 
         return (
@@ -61,7 +67,7 @@ export default class SignInPage extends React.Component {
                                     borderWidth: 2,
                                     height:50
                                 }}
-                                onPress={() => this.props.navigation.navigate('HomeScreen')}
+                                onPress={()=>signUp()}
                             >
                                 <Text style={{
                                     ...defaultStyle.text,
@@ -77,12 +83,12 @@ export default class SignInPage extends React.Component {
                                     width: "45%",
                                     borderBottomRightRadius: 100,
                                     borderTopRightRadius: 100,
-                                    backgroundColor: '#ffbc00',
-                                    borderColor: '#ffbc00',
+                                    backgroundColor: defaultStyle.yellow,
+                                    borderColor: defaultStyle.yellow,
                                     borderWidth: 2,
                                     height:50
                                 }}
-                                onPress={sign}
+                                onPress={()=>signIn()}
                             >
                                 <Text style={{
                                     ...defaultStyle.text,
@@ -120,7 +126,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: '#045249',
+        backgroundColor: defaultStyle.green,
         justifyContent: 'center'
     },
     logo_img: {
@@ -167,8 +173,15 @@ const styles = StyleSheet.create({
     }
 });
 
-const defaultStyle = {
-    text: {
-        fontFamily: 'Exo'
-    }
-}
+
+const SignInPage = createStackNavigator({
+    SignInScreen:__SignInPage,
+    HomeScreen: {
+        screen: AgendaPage,
+    },
+},{
+    initialRouteName: 'SignInScreen',
+    headerMode: 'none',
+});
+
+export default SignInPage;

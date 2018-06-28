@@ -22,7 +22,7 @@ export default class AddOffer extends React.Component {
                         <TextInput style={styles.inputStyle}/>
                         <TextInput style={styles.inputStyle}/>
                     </View>
-                    <View style:{styles.footerContainer}>
+                    <View style={styles.footerContainer}>
                         <View style={styles.leftContainer}></View>
                         <View style={styles.middleContainer}></View>
                         <View style={styles.rightContainer}></View>

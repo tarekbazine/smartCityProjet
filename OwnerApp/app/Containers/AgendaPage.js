@@ -4,11 +4,15 @@ import {
 } from 'react-native';
 import { Calendar,CalendarList } from 'react-native-calendars';
 import Icon from 'react-native-vector-icons/FontAwesome';
-export default class SignUpPage extends React.Component {
+import {createStackNavigator} from "react-navigation";
+import AddOffer from "./AddOffer";
+import defaultStyle from '../assets/style/DefaultStyles';
+
+class __AgendaPage extends React.Component {
 
     render() {
-        const sign = () => {
-            console.warn("press")
+        const addOffer = () => {
+            console.warn("press00")
         }
 
         return (
@@ -33,7 +37,9 @@ export default class SignUpPage extends React.Component {
                         </TouchableOpacity>
                     </View>
                     <View style={styles.addButtonContainer}>
-                        <TouchableOpacity style={styles.addButton}>
+                        <TouchableOpacity
+                            onPress={()=>addOffer()}
+                            style={styles.addButton}>
                             <Icon name="plus" style={[styles.icons, styles.middleIcone]}/>
                             {/*<Text style={{alignSelf:'center',color:'#fff',fontSize:45}}>+</Text>*/}
                         </TouchableOpacity>
@@ -52,7 +58,7 @@ export default class SignUpPage extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor:'#0b2612'
+        backgroundColor:defaultStyle.green
     },
     calendarContainer:{
         marginTop:75,
@@ -98,7 +104,7 @@ const styles = StyleSheet.create({
         padding: 28,
         maxHeight:85,
         maxWidth:85,
-        backgroundColor:'#d9b568',
+        backgroundColor:defaultStyle.yellow,
         borderRadius: 150/2,
         position:'absolute',
         alignSelf:'center',
@@ -123,3 +129,17 @@ const styles = StyleSheet.create({
         marginBottom:200,
     }
 });
+
+
+
+const AgendaPage = createStackNavigator({
+    AgendaScreen:__AgendaPage,
+    OffersScreen: {
+        screen: AddOffer,
+    },
+},{
+    initialRouteName: 'AgendaScreen',
+    headerMode: 'none',
+});
+
+export default AgendaPage;
