@@ -20,7 +20,7 @@ class __SignInPage extends React.Component {
         const signIn = () => {
             this.props.navigation.navigate('HomeScreen')
         }
-        
+
         const signUp = () => {
            alert('connexion')
         }

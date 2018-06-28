@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import  TouchableOpacity from ""
 
-export default class Offers extends Component {
+export default class Footer extends Component {
     render() {
         return (
             <View style={styles.container}>
@@ -14,7 +14,6 @@ export default class Offers extends Component {
                         <Text style={{alignSelf:'center',textColor:'#fff',fontSize:45}}>+</Text>
                     </TouchableOpacity>
                 </View>
-                <View style={styles.footerRight}></View>
             </View>
         );
     }
@@ -22,7 +21,9 @@ export default class Offers extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        height:75,
+        position:'absolute',
+        bottom:0,
         backgroundColor:'#0b2612'
     },
 

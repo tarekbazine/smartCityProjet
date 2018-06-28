@@ -3,6 +3,8 @@ import {
     StyleSheet, Text, TextInput,
     Button, View, Image
 } from 'react-native';
+import Header from '../Components/Header'
+
 
 export default class AddOffer extends React.Component {
     render() {
@@ -12,6 +14,7 @@ export default class AddOffer extends React.Component {
 
         return (
             <View style={styles.container}>
+                <Header/>
 
                 <View style={styles.inputsContainer}>
                     <View>
@@ -22,13 +25,9 @@ export default class AddOffer extends React.Component {
                         <TextInput style={styles.inputStyle}/>
                         <TextInput style={styles.inputStyle}/>
                     </View>
-                    <View style={styles.footerContainer}>
-                        <View style={styles.leftContainer}></View>
-                        <View style={styles.middleContainer}></View>
-                        <View style={styles.rightContainer}></View>
-                    </View>
-
                 </View>
+
+                {/*<Footer/>*/}
             </View>
         );
     }
@@ -36,21 +35,15 @@ export default class AddOffer extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
+        paddingTop:75,
+        paddingBottom:75,
         flex: 1,
-        backgroundColor: '#0b2612',
+        backgroundColor: '#fff',
         // flexDirection: 'column'
     },
-    logo_img:{
-        height: 80,
-        width: 50
-    },
-    logo: {
-        flex: 1,
-        // height: 50,
-        // width: 100
-    },
     inputsContainer: {
-        flex: 1,
+        // flex: 1,
+
         // height: '100%',
         // height: 50,
         // width: 100,

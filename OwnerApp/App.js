@@ -5,11 +5,9 @@ import { Font } from 'expo'
 import AgendaPage from './app/Containers/AgendaPage'
 import Offers from './app/Containers/Offers'
 import { createStackNavigator } from 'react-navigation';
-import HomePage from './app/Containers/HomePage';
-import {Font} from 'expo'
-import {createStackNavigator} from 'react-navigation';
+import AddOffer from "./app/Containers/AddOffer";
 
-export default class App extends React.Component {
+class __App extends React.Component {
 
     constructor(props) {
         super(props);
@@ -42,14 +40,14 @@ const styles = StyleSheet.create({
         flex: 1
     },
 });
-//
-//
-// const App = createStackNavigator({
-//     Home: {
-//         screen: __App
-//     }
-// }, {
-//     headerMode: 'none',
-// });
-//
-// export default App;
+
+
+const App = createStackNavigator({
+    Home: {
+        screen: __App
+    }
+}, {
+    headerMode: 'none',
+});
+
+export default App;

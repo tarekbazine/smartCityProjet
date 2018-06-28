@@ -14,12 +14,12 @@ import Header from '../Components/Header';
 class __AgendaPage extends React.Component {
     render() {
         const addOffer = () => {
-            console.warn("press00")
+            this.props.navigation.navigate('AddOfferScreen')
         }
 
         return (
             <View style={styles.container}>
-                {/*<Header title='Mon Agenda'/>*/}
+                <Header title='Mon Agenda'/>
                 <View style={styles.calendarContainer}>
                     <Text style={{color:'#9c9c9c', fontFamily:'Exo', marginLeft:25, fontSize:17, marginBottom:20}}>Explore Your Offers</Text>
                     {/*calendar*/}
@@ -51,7 +51,11 @@ class __AgendaPage extends React.Component {
                     <View style={styles.footerRight}>
                         <TouchableOpacity style={styles.eadgIconRight}>
                             <View style={{justifyContent:'flex-end',flexDirection: 'row'}}>
-                                <Icon name="th-list" style={styles.icons}/>
+                                <Icon name="th-list" style={{
+                                    fontSize : 35,
+                                    color : '#fff',
+                                    zIndex:20,
+                                    marginRight:5}}/>
                                 <Text style={{color:'#fff',marginTop:5,...defaultStyle.text}}>Labors</Text>
                             </View>
                         </TouchableOpacity>
@@ -138,18 +142,10 @@ const styles = StyleSheet.create({
     }
 });
 
-const defaultStyle = {
-    text: {
-        fontFamily: 'Exo'
-    }
-}
-
-
-
 
 const AgendaPage = createStackNavigator({
     AgendaScreen:__AgendaPage,
-    OffersScreen: {
+    AddOfferScreen: {
         screen: AddOffer,
     },
 },{
