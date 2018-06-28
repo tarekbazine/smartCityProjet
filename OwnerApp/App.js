@@ -2,7 +2,8 @@ import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import SignInPage from './app/Containers/SignInPage'
 import { Font } from 'expo'
-
+import AgendaPage from './app/Containers/AgendaPage'
+import Offers from './app/Containers/Offers'
 export default class App extends React.Component {
     constructor(props) {
         super(props);
@@ -11,7 +12,7 @@ export default class App extends React.Component {
 
     async componentWillMount() {
         await Font.loadAsync({
-            'Exo': require('./app/assets/font/Exo/Exo-Medium.ttf')
+            Exo: require('./app/assets/font/Exo/Exo-Medium.ttf')
         });
         this.setState({ loading: false });
     }
@@ -22,7 +23,7 @@ export default class App extends React.Component {
         }
         return (
             <View style={styles.container}>
-                <SignInPage/>
+                <AgendaPage/>
             </View>
         );
     }
