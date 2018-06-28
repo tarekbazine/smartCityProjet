@@ -114,8 +114,6 @@ const styles = StyleSheet.create({
     },
     eadgIconLeft:{
         alignSelf:'flex-start',
-        position:'absolute',
-        bottom:5,
         marginBottom:200,
     },
     eadgIconRight:{
