@@ -4,12 +4,14 @@ import {
 } from 'react-native';
 import { Calendar,CalendarList } from 'react-native-calendars';
 import Icon from 'react-native-vector-icons/FontAwesome';
+
 import {createStackNavigator} from "react-navigation";
 import AddOffer from "./AddOffer";
 import defaultStyle from '../assets/style/DefaultStyles';
+import Header from '../Components/Header';
+
 
 class __AgendaPage extends React.Component {
-
     render() {
         const addOffer = () => {
             console.warn("press00")
@@ -17,6 +19,7 @@ class __AgendaPage extends React.Component {
 
         return (
             <View style={styles.container}>
+                {/*<Header title='Mon Agenda'/>*/}
                 <View style={styles.calendarContainer}>
                     <Text style={{color:'#9c9c9c', fontFamily:'Exo', marginLeft:25, fontSize:17, marginBottom:20}}>Explore Your Offers</Text>
                     {/*calendar*/}
@@ -24,10 +27,12 @@ class __AgendaPage extends React.Component {
                         markedDates={
                             {   '2018-06-27': {textColor: 'green'},
                                 '2018-06-30': {startingDay: true, color: 'green'},
-                                '2018-07-1': {selected: true, endingDay: true, color: 'green', textColor: 'gray'},
+                                '2018-07-01': {selected: true, endingDay: true, color: 'green', textColor: 'gray'},
                                 '2018-07-04': {disabled: true, startingDay: true, color: 'green', endingDay: true}
                             }
                         }
+                        markingType={'period'}
+                        onDayPressed = {(day) => {console.warn('selected day', day)}}
                     />
                 </View>
                 <View style={styles.footer}>
@@ -41,12 +46,14 @@ class __AgendaPage extends React.Component {
                             onPress={()=>addOffer()}
                             style={styles.addButton}>
                             <Icon name="plus" style={[styles.icons, styles.middleIcone]}/>
-                            {/*<Text style={{alignSelf:'center',color:'#fff',fontSize:45}}>+</Text>*/}
                         </TouchableOpacity>
                     </View>
                     <View style={styles.footerRight}>
                         <TouchableOpacity style={styles.eadgIconRight}>
-                            <Icon name="power-off" style={styles.icons}/>
+                            <View style={{justifyContent:'flex-end',flexDirection: 'row'}}>
+                                <Icon name="th-list" style={styles.icons}/>
+                                <Text style={{color:'#fff',marginTop:5,...defaultStyle.text}}>Labors</Text>
+                            </View>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -80,12 +87,14 @@ const styles = StyleSheet.create({
 
     },
     scoreContainer:{
-
     },
     footerLeft:{
-
+        alignSelf:'flex-start',
+        width:'50%',
     },
     footerRight:{
+        alignSelf:'flex-end',
+        width:'50%',
     },
     addButtonContainer:{
         width: 95,
@@ -112,23 +121,29 @@ const styles = StyleSheet.create({
     },
     icons: {
         fontSize : 35,
-        color : '#000',
+        color : '#fff',
         zIndex:20
     },
     middleIcone:{
         alignSelf:'center'
     },
     eadgIconLeft:{
-        alignSelf:'flex-start',
-        marginBottom:200,
+        marginBottom:-75,
+        paddingLeft:15,
+        paddingTop:15
     },
     eadgIconRight:{
-        alignSelf:'flex-end',
-        position:'absolute',
-        bottom:5,
-        marginBottom:200,
+        marginBottom:-75,
+        paddingTop:14
     }
 });
+
+const defaultStyle = {
+    text: {
+        fontFamily: 'Exo'
+    }
+}
+
 
 
 

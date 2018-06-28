@@ -12,7 +12,7 @@ export default class Offers extends React.Component {
         return (
             <View style={styles.container}>
                 <Header title={'Offers'}/>
-                <Body title={'Explore '}>
+                <Body title={'Explore O'}>
                     <Text>test</Text>
                 </Body>
             </View>
@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
 
     },
     footerLeft:{
+
     },
     footerRight:{
     },
