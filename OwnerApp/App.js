@@ -5,6 +5,11 @@ import { Font } from 'expo'
 import AgendaPage from './app/Containers/AgendaPage'
 import Offers from './app/Containers/Offers'
 export default class App extends React.Component {
+import { createStackNavigator } from 'react-navigation';
+import HomePage from './app/Containers/HomePage';
+
+
+class __App extends React.Component {
     constructor(props) {
         super(props);
         this.state = { loading: true };
@@ -23,7 +28,7 @@ export default class App extends React.Component {
         }
         return (
             <View style={styles.container}>
-                <AgendaPage/>
+                <SignInPage/>
             </View>
         );
     }
@@ -36,3 +41,18 @@ const styles = StyleSheet.create({
         flex: 1
     },
 });
+
+
+const App = createStackNavigator({
+    Home: {
+        screen: __App
+    },
+    HomeScreen: {
+        screen: HomePage,
+    },
+    SignInScreen:SignInPage
+},{
+    headerMode: 'none',
+});
+
+export default App;
